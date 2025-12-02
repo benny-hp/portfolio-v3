@@ -1,22 +1,86 @@
+---
+import { getEntry, type CollectionEntry } from "astro:content";
+import "../styles/global.css";
+// import Banner from "../components/Banner.astro";
+import Header from "../components/Header.astro";
+// import Footer from "../components/Footer.astro";
+// import PostHog from "../components/posthog.astro";
+
+const global = await getEntry("globals", "home");
+
+if (!global) {
+  throw new Error("Global entry not found");
+}
+interface Props {
+  seo: CollectionEntry<"pages">["data"]["seo"];
+}
+const { seo } = Astro.props;
+const canonical = Astro.url.href;
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href={`${canonical}/sitemap-index.xml`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>{seo?.title}</title>
+    <meta name="description" content={seo?.description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={seo?.og?.title} />
+    <meta property="og:description" content={seo?.og?.description} />
+    <meta property="og:type" content={seo?.og?.type} />
+    <meta property="og:url" content={seo?.og?.url} />
+    <meta property="twitter:card" content={seo?.twitter?.card} />
+    <meta property="twitter:title" content={seo?.twitter?.title} />
+    <meta property="twitter:description" content={seo?.twitter?.description} />
+    <!-- <PostHog /> -->
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Header header={global.data.header} />
+    <main class="grow">
+      <slot />
+    </main>
+    <!-- <Footer footer={global.data.footer} /> -->
+  </body>
+  <script is:inline>
+    (function () {
+      function initAnimations() {
+        const animatedElements = document.querySelectorAll("[data-animate]");
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+        if (animatedElements.length === 0) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px",
+          }
+        );
+
+        animatedElements.forEach((el) => observer.observe(el));
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initAnimations);
+      } else {
+        initAnimations();
+      }
+    })();
+  </script>
+</html>

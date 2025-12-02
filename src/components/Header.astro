@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Hamburger from "./ui/icons/Hamburger.astro";
+import CTAButton from "./ui/CTAButton.astro";
+
+interface Props {
+  header: CollectionEntry<"globals">["data"]["header"];
+}
+
+const { header } = Astro.props;
+---
+
+{
+  header && (
+    <>
+      <header
+        id="header"
+        class="shadow-[0_4px_12px_-10px_rgba(0,0,0,0.5)] animate-fade-in-up sticky top-0 z-50 bg-bg-base"
+        data-animate
+      >
+        <div class="w-full max-w-[1000px] mx-auto py-7 px-4 flex items-center">
+          <a
+            href="/"
+            class="text-2xl font-bold font-family-heading text-text-base relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:rounded-full after:w-0 after:h-1 after:bg-bg-secondary after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-23"
+          >
+            BENNY H<span class="text-text-secondary">.</span>
+          </a>
+          <Hamburger />
+          <nav class="hidden md:block ml-auto">
+            <ul class="flex items-center gap-7">
+              {header.navLinks.map((link, index) => (
+                <li
+                  class="text-[0.8125rem] font-family-heading uppercase font-semibold text-text-base animate-fade-in-up nav-link-stagger"
+                  data-animate
+                  style={`--stagger-index: ${index}`}
+                >
+                  <a
+                    href={link.href}
+                    class="relative tracking-wider after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-0.75 after:rounded-full after:bg-bg-secondary after:transition-[width] after:duration-300 after:ease-in-out hover:after:w-full"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <CTAButton
+            class="hidden md:inline-flex"
+            label={header.cta.label}
+            href={header.cta.href}
+          />
+        </div>
+      </header>
+      {/* Mobile menu */}
+      <div
+        id="mobile-menu"
+        class="md:hidden fixed top-25 left-0 w-full bg-white z-40 transition-all duration-300 opacity-0 invisible -translate-y-full"
+      >
+        <nav class="p-4 flex flex-col h-full justify-between">
+          <ul class="flex flex-col">
+            {header.navLinks.map((link) => (
+              <li class="text-xl font-bold text-[#3F3F46] text-center">
+                <a
+                  class="w-full h-full uppercase block hover:bg-[#F4F4F5] active:bg-[#F4F4F5] py-4 transition-all duration-300 ease-in-out rounded-xl"
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </>
+  )
+}
+
+<script>
+  const header = document.getElementById("header");
+  const menu = document.getElementById("mobile-menu");
+  const menuButton = document.getElementById("menu-button");
+  const hamburgerIcon = menuButton?.querySelector(".hamburger-icon");
+  const menuLinks = menu?.querySelectorAll("a");
+
+  if (menu && menuButton) {
+    const toggleMenu = () => {
+      menu.classList.toggle("opacity-0");
+      menu.classList.toggle("invisible");
+      menu.classList.toggle("-translate-y-full");
+
+      hamburgerIcon?.classList.toggle("active");
+      document.body.classList.toggle("overflow-hidden");
+    };
+
+    menuButton?.addEventListener("click", toggleMenu);
+    menuLinks?.forEach((link) => {
+      link.addEventListener("click", toggleMenu);
+    });
+  }
+
+  if (header && menu) {
+    const updateTop = () => {
+      const headerBottom = header.getBoundingClientRect().bottom;
+      menu.style.top = `${headerBottom}px`;
+      menu.style.height = `calc(100vh - ${headerBottom}px)`;
+      menu.style.height = `calc(100dvh - ${headerBottom}px)`;
+    };
+
+    updateTop();
+    window.addEventListener("resize", updateTop);
+    window.addEventListener("scroll", updateTop);
+  }
+</script>

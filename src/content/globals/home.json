@@ -1,0 +1,17 @@
+{
+  "header": {
+    "navLinks": [
+      { "label": "about", "href": "#about" },
+      { "label": "projects", "href": "#projects" },
+      { "label": "contact", "href": "#contact" }
+    ],
+    "cta": {
+      "icon": {
+        "url": "/icons/download.svg",
+        "alt": "phone icon"
+      },
+      "href": "/resume.pdf",
+      "label": "Resume/CV"
+    }
+  }
+}
