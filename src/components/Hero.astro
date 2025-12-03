@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import faceImage from "../assets/face-image.png";
+import sun from "../assets/sun.svg";
 import CTAButton from "./ui/CTAButton.astro";
 interface Props {
   hero: CollectionEntry<"pages">["data"]["hero"];
@@ -10,12 +11,14 @@ const { hero } = Astro.props;
 ---
 
 <section id="hero" class="bg-bg-base flex items-center relative">
-  <div class="w-full max-w-[1100px] mx-auto py-7 px-4 grid grid-cols-2">
-    <div>
+  <div class="w-full max-w-[1100px] mx-auto py-7 px-4 grid grid-cols-1">
+    <div class="z-20 relative">
       <h1 class="text-2xl font-semibold text-text-base">{hero.heading}</h1>
       <span class="text-5xl font-bold text-text-base">{hero.subheading}</span>
-      <p class="text-text-base max-w-[697px] mt-5">{hero.text}</p>
-      <div class="flex gap-7.5 mt-25">
+      <p class="text-text-base max-w-[600px] md:max-w-[500px] mt-5">
+        {hero.text}
+      </p>
+      <div class="flex gap-7.5 mt-15">
         {
           hero.cta.map((cta) => (
             <CTAButton
@@ -33,7 +36,14 @@ const { hero } = Astro.props;
       src={faceImage.src}
       alt=""
       fetchpriority="high"
-      class="absolute top-0 right-0 w-[754px]"
+      class="absolute bottom-0 right-0 w-[60%] max-w-[654px] max-h-full object-contain z-10"
+    />
+    <img
+      id="sun"
+      src={sun.src}
+      alt=""
+      fetchpriority="high"
+      class="absolute top-10 right-0 w-[60%] max-w-[306px] max-h-full object-contain"
     />
   </div>
 </section>
