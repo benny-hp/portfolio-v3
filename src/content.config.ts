@@ -21,38 +21,15 @@ const pages = defineCollection({
     hero: z.object({
       heading: z.string(),
       subheading: z.string(),
+      text: z.string(),
+      cta: z.array(
+        z.object({
+          icon: z.enum(["projects", "download"]),
+          label: z.string(),
+          href: z.string(),
+        })
+      ),
     }),
-    "engagement-models": z
-      .object({
-        heading: z.string(),
-        models: z.array(
-          z.object({
-            heading: z.string(),
-            icon: z.string(),
-            benefits: z.array(
-              z.object({
-                icon: z.string(),
-                text: z.string(),
-              })
-            ),
-          })
-        ),
-      })
-      .nullable(),
-    approach: z
-      .object({
-        heading: z.string(),
-        description: z.string(),
-      })
-      .nullable(),
-    capabilities: z.array(
-      z.object({
-        icon: z.string(),
-        heading: z.string(),
-        description: z.string(),
-        "background-color": z.string(),
-      })
-    ),
   }),
 });
 
@@ -67,10 +44,7 @@ const globals = defineCollection({
         })
       ),
       cta: z.object({
-        icon: z.object({
-          url: z.string(),
-          alt: z.string(),
-        }),
+        icon: z.enum(["download", "projects"]),
         href: z.string(),
         label: z.string(),
       }),
@@ -78,4 +52,4 @@ const globals = defineCollection({
   }),
 });
 
-export const collections = { globals };
+export const collections = { globals, pages };

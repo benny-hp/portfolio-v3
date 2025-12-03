@@ -1,8 +1,14 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import Hero from "../components/Hero.astro";
+const home = await getEntry("pages", "home");
+
+if (!home) {
+  throw new Error("Home entry not found");
+}
 ---
 
-<Layout seo={{ title: "Home", description: "Home page" }}>
-  <h1 class="">Hello World</h1>
+<Layout seo={home.data.seo}>
+  <Hero hero={home.data.hero} />
 </Layout>

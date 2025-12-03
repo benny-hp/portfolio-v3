@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+import faceImage from "../assets/face-image.png";
+import CTAButton from "./ui/CTAButton.astro";
+interface Props {
+  hero: CollectionEntry<"pages">["data"]["hero"];
+}
+
+const { hero } = Astro.props;
+---
+
+<section id="hero" class="bg-bg-base flex items-center relative">
+  <div class="w-full max-w-[1100px] mx-auto py-7 px-4 grid grid-cols-2">
+    <div>
+      <h1 class="text-2xl font-semibold text-text-base">{hero.heading}</h1>
+      <span class="text-5xl font-bold text-text-base">{hero.subheading}</span>
+      <p class="text-text-base max-w-[697px] mt-5">{hero.text}</p>
+      <div class="flex gap-7.5 mt-25">
+        {
+          hero.cta.map((cta) => (
+            <CTAButton
+              class="px-3 py-1.5"
+              icon={cta.icon}
+              label={cta.label}
+              href={cta.href}
+            />
+          ))
+        }
+      </div>
+    </div>
+    <img
+      id="faceImage"
+      src={faceImage.src}
+      alt=""
+      fetchpriority="high"
+      class="absolute top-0 right-0 w-[754px]"
+    />
+  </div>
+</section>
+
+<script>
+  const header = document.getElementById("header");
+  const hero = document.getElementById("hero");
+
+  if (header && hero) {
+    const updateTop = () => {
+      const headerBottom = header.getBoundingClientRect().bottom;
+      hero.style.height = `calc(100vh - ${headerBottom}px)`;
+      hero.style.height = `calc(100dvh - ${headerBottom}px)`;
+    };
+
+    updateTop();
+    window.addEventListener("resize", updateTop);
+  }
+</script>

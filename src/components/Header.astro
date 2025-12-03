@@ -45,7 +45,8 @@ const { header } = Astro.props;
             </ul>
           </nav>
           <CTAButton
-            class="hidden md:inline-flex"
+            class="hidden md:inline-flex ml-25"
+            icon={header.cta.icon}
             label={header.cta.label}
             href={header.cta.href}
           />
@@ -70,6 +71,7 @@ const { header } = Astro.props;
             ))}
           </ul>
           <CTAButton
+            icon={header.cta.icon}
             label={header.cta.label}
             href={header.cta.href}
             class="w-80 mx-auto justify-center"
