@@ -15,7 +15,7 @@ const { label, href, class: className, style, animate } = Astro.props;
 <a
   href={href}
   class={cn(
-    "group text-[0.8125rem] font-family-heading uppercase font-semibold text-text-base bg-bg-base px-4 py-2 ml-25 rounded-full inline-flex items-center gap-2 border-4 border-bg-secondary",
+    "text-[0.8125rem] font-family-heading uppercase font-semibold text-text-base bg-bg-base px-2 py-2 ml-25 rounded-full inline-flex items-center gap-2 border-4 border-bg-secondary relative overflow-hidden before:content-[''] before:absolute before:top-0 before:right-0 before:bottom-0 before:bg-[#E4CDB8] before:w-16 before:rounded-full hover:before:w-full before:transition-[width] before:duration-300 before:ease-out before:z-0",
     className
   )}
   target="_blank"
@@ -30,13 +30,13 @@ const { label, href, class: className, style, animate } = Astro.props;
     viewBox="0 0 32 31"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="w-6 h-6"
+    class="w-6 h-6 relative z-10"
   >
     <ellipse cx="16" cy="15.5" rx="16" ry="15.5" fill="#BF5252"></ellipse>
     <path d="M16 25L10.1892 17.5L21.8107 17.5L16 25Z" fill="#F3E8DD"></path>
     <rect x="10.3226" y="10" width="11.3548" height="3" fill="#F3E8DD"></rect>
   </svg>
-  {label}
+  <span class="relative z-10">{label}</span>
 </a>
 
 <script>
