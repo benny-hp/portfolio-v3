@@ -30,6 +30,25 @@ const pages = defineCollection({
         })
       ),
     }),
+    about: z.object({
+      social: z.array(
+        z.object({
+          icon: z.enum(["github", "linkedin", "x"]),
+          href: z.string(),
+        })
+      ),
+      description: z.string(),
+      skills: z.array(
+        z.object({
+          section: z.string(),
+          skills: z.array(
+            z.object({
+              name: z.string(),
+            })
+          ),
+        })
+      ),
+    }),
   }),
 });
 

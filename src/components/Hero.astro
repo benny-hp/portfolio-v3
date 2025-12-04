@@ -10,11 +10,20 @@ interface Props {
 const { hero } = Astro.props;
 ---
 
-<section id="hero" class="bg-bg-base flex items-center relative">
-  <div class="w-full max-w-[1100px] mx-auto py-7 px-4 grid grid-cols-1">
+<section
+  id="hero"
+  class="bg-bg-base flex items-center relative overflow-hidden animate-fade-in-down"
+  data-animate
+>
+  <div class="w-full max-w-[1200px] mx-auto py-7 px-4 grid grid-cols-1">
     <div class="z-20 relative">
-      <h1 class="text-2xl font-semibold text-text-base">{hero.heading}</h1>
-      <span class="text-5xl font-bold text-text-base">{hero.subheading}</span>
+      <h1 class="text-2xl font-semibold text-text-base tracking-wider">
+        {hero.heading}
+      </h1>
+      <span
+        class="text-5xl font-bold text-text-base font-family-heading tracking-wider"
+        >{hero.subheading}</span
+      >
       <p class="text-text-base max-w-[600px] md:max-w-[500px] mt-5">
         {hero.text}
       </p>
@@ -31,20 +40,24 @@ const { hero } = Astro.props;
         }
       </div>
     </div>
-    <img
-      id="faceImage"
-      src={faceImage.src}
-      alt=""
-      fetchpriority="high"
-      class="absolute bottom-0 right-0 w-[60%] max-w-[654px] max-h-full object-contain z-10"
-    />
-    <img
-      id="sun"
-      src={sun.src}
-      alt=""
-      fetchpriority="high"
-      class="absolute top-10 right-0 w-[60%] max-w-[306px] max-h-full object-contain"
-    />
+    <div
+      class="absolute bottom-0 right-0 max-w-[60%] md:max-w-[min(60%,654px)] z-10 pointer-events-none"
+    >
+      <img
+        id="sun"
+        src={sun.src}
+        alt=""
+        fetchpriority="high"
+        class="absolute -top-[6%] right-[7%] w-[47%] object-contain -z-10"
+      />
+      <img
+        id="faceImage"
+        src={faceImage.src}
+        alt=""
+        fetchpriority="high"
+        class="w-auto h-auto max-h-full object-contain"
+      />
+    </div>
   </div>
 </section>
 

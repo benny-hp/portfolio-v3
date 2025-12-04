@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+import SocialLinks from "./ui/SocialLinks.astro";
+
+interface Props {
+  about: CollectionEntry<"pages">["data"]["about"];
+}
+
+const { about } = Astro.props;
+
+console.dir(about, { depth: null });
+---
+
+<section id="about" class="bg-[#E1D6CB]">
+  <div class="w-full max-w-[1200px] mx-auto py-25 px-4 grid grid-cols-2 gap-10">
+    <div>
+      <h2
+        class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary"
+      >
+        About Me
+      </h2>
+      <span
+        class="text-sm text-text-secondary block font-family-heading font-extrabold tracking-wider mt-7"
+        >Who am i?</span
+      >
+      <span
+        class="text-lg font-bold text-text-base tracking-wider font-family-heading block"
+        >Hey, I'm Benny👋</span
+      >
+      <div class="flex items-center gap-2 my-5">
+        {
+          about.social.map((social) => (
+            <SocialLinks icon={social.icon} href={social.href} />
+          ))
+        }
+      </div>
+      <div class="flex flex-col gap-4">
+        {
+          about.description
+            .split("\n")
+            .map((text) => <p class="text-sm text-text-base">{text}</p>)
+        }
+      </div>
+    </div>
+    <div>
+      <h2
+        class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary"
+      >
+        My Skills
+      </h2>
+      <div class="grid grid-cols-2 gap-4 mt-12">
+        {
+          about.skills.map((skill) => (
+            <div>
+              <h3 class="font-bold text-lg text-text-base">{skill.section}</h3>
+              <ul class="grid grid-cols-2 gap-2 mt-5">
+                {skill.skills.map((skill) => (
+                  <li class=" text-text-base text-sm flex items-center gap-2">
+                    <svg
+                      width="8"
+                      height="9"
+                      viewBox="0 0 8 9"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-2.5 h-2.5"
+                    >
+                      <path
+                        d="M0.5 7.79498L0.5 0.865295L6.50098 4.33014L0.5 7.79498Z"
+                        stroke="#BF5252"
+                      />
+                    </svg>
+                    {skill.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

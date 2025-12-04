@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { getEntry } from "astro:content";
 import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
 const home = await getEntry("pages", "home");
 
 if (!home) {
@@ -11,4 +12,5 @@ if (!home) {
 
 <Layout seo={home.data.seo}>
   <Hero hero={home.data.hero} />
+  <About about={home.data.about} />
 </Layout>
