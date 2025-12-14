@@ -49,6 +49,22 @@ const pages = defineCollection({
         })
       ),
     }),
+    projects: z.array(
+      z.object({
+        featured_image: z.object({
+          url: z.string(),
+          width: z.number(),
+          height: z.number(),
+          alt: z.string(),
+        }),
+        featured: z.boolean(),
+        name: z.string(),
+        description: z.string(),
+        technologies: z.array(z.string()),
+        site: z.string().url().optional(),
+        repo: z.string().url().optional(),
+      })
+    ),
   }),
 });
 

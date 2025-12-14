@@ -79,4 +79,33 @@ about:
         - name: "Turborepo"
         - name: "Bash"
 
+projects:
+  - featured: true
+    featured_image:
+      url: "/images/projects/artec-manufacturing.png"
+      alt: "Artec Manufacturing feature image"
+      width: 720
+      height: 447
+    name: "Artec Manufacturing"
+    description: "Artec, established in 2003, entrusted me with building their primary website. Using TypeScript, Next.js, and Tailwind CSS, I built this project reflecting Artec's journey from humble beginnings to premier manufacturer. Integrating modern tech and user-centric design, the site showcases Artec's capabilities and commitment to bringing ideas to life."
+    technologies:
+      - "Typescript"
+      - "Sass"
+      - "Next"
+    site: "https://www.artecmanufacturing.com/"
+  - featured: true
+    featured_image:
+      url: "/images/projects/artec-manufacturing.png"
+      alt: "Artec Manufacturing feature image"
+      width: 720
+      height: 447
+    name: "CoinFolio"
+    description: "CoinFolio is a full-stack cryptocurrency web application design to help users track their favorite coins and get a 7 days snapshot of the price. The app was build with next-auth, prisma, google provider for authentication, and trpc as a wrapper for serverless functions. The ui was build with tailwind for theming and dark and light mode."
+    technologies:
+      - "Typescript"
+      - "Sass"
+      - "Next"
+    site: "https://coinfolio-plum.vercel.app/"
+    repo: "https://github.com/benny-hp/coinfolio"
+
 ---
