@@ -22,7 +22,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
   @media (min-width: 768px) {
-    scroll-padding-top: 125px;
+    scroll-padding-top: 104px;
   }
 }
 

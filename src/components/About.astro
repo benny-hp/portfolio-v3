@@ -7,62 +7,88 @@ interface Props {
 }
 
 const { about } = Astro.props;
-
-console.dir(about, { depth: null });
 ---
 
 <section id="about" class="bg-[#E1D6CB]">
-  <div class="w-full max-w-[1200px] mx-auto py-25 px-4 grid grid-cols-2 gap-10">
+  <div
+    class="w-full max-w-[1200px] mx-auto py-25 px-4 grid grid-cols-1 md:grid-cols-2 gap-10"
+  >
     <div>
       <h2
-        class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary"
+        class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary animate-fade-in-up"
+        data-animate
       >
         About Me
       </h2>
       <span
-        class="text-sm text-text-secondary block font-family-heading font-extrabold tracking-wider mt-7"
-        >Who am i?</span
+        class="text-sm text-text-secondary block font-family-heading font-extrabold tracking-wider mt-7 animate-fade-in-up stagger-animation"
+        data-animate
+        style={`--stagger-index: ${0.1}`}>Who am i?</span
       >
       <span
-        class="text-lg font-bold text-text-base tracking-wider font-family-heading block"
-        >Hey, I'm Benny👋</span
+        class="text-lg font-bold text-text-base tracking-wider font-family-heading block animate-fade-in-up stagger-animation"
+        data-animate
+        style={`--stagger-index: ${0.2}`}>Hey, I'm Benny👋</span
       >
       <div class="flex items-center gap-2 my-5">
         {
-          about.social.map((social) => (
-            <SocialLinks icon={social.icon} href={social.href} />
+          about.social.map((social, index) => (
+            <SocialLinks
+              class="animate-fade-in-up stagger-animation"
+              animate={true}
+              style={`--stagger-index: ${0.3 + index}`}
+              icon={social.icon}
+              href={social.href}
+            />
           ))
         }
       </div>
       <div class="flex flex-col gap-4">
         {
-          about.description
-            .split("\n")
-            .map((text) => <p class="text-sm text-text-base">{text}</p>)
+          about.description.split("\n").map((text, index) => (
+            <p
+              class="text-sm text-text-base animate-fade-in-up stagger-animation"
+              data-animate
+              style={`--stagger-index: ${0.4 + index}`}
+            >
+              {text}
+            </p>
+          ))
         }
       </div>
     </div>
     <div>
       <h2
-        class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary"
+        class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary animate-fade-in-up"
+        data-animate
       >
         My Skills
       </h2>
-      <div class="grid grid-cols-2 gap-4 mt-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
         {
-          about.skills.map((skill) => (
+          about.skills.map((skill, index) => (
             <div>
-              <h3 class="font-bold text-lg text-text-base">{skill.section}</h3>
-              <ul class="grid grid-cols-2 gap-2 mt-5">
-                {skill.skills.map((skill) => (
-                  <li class=" text-text-base text-sm flex items-center gap-2">
+              <h3
+                class="font-bold text-lg text-text-base animate-fade-in-up stagger-animation"
+                data-animate
+                style={`--stagger-index: ${0.1 + index}`}
+              >
+                {skill.section}
+              </h3>
+              <ul class="grid grid-cols-2 md:grid-cols-[repeat(auto-fill,minmax(105px,1fr))] gap-2 mt-5">
+                {skill.skills.map((skill, index) => (
+                  <li
+                    class=" text-text-base text-sm flex items-center gap-2 animate-fade-in-up stagger-animation"
+                    data-animate
+                    style={`--stagger-index: ${0.2 + index}`}
+                  >
                     <svg
                       width="8"
                       height="9"
                       viewBox="0 0 8 9"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      class="w-2.5 h-2.5"
+                      class="w-2.5 h-2.5 shrink-0 min-w-2.5"
                     >
                       <path
                         d="M0.5 7.79498L0.5 0.865295L6.50098 4.33014L0.5 7.79498Z"
