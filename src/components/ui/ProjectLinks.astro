@@ -7,17 +7,26 @@ interface Props {
   class?: string;
   style?: string;
   animate?: boolean;
+  staggerIndex?: number;
 }
 
-const { icon, href, class: className, style, animate } = Astro.props;
+const {
+  icon,
+  href,
+  class: className,
+  style,
+  animate,
+  staggerIndex,
+} = Astro.props;
 ---
 
 <a
   href={href}
-  class={cn("", className)}
+  class={cn("animate-fade-in-up stagger-animation", className)}
   target="_blank"
   style={style}
   data-animate={animate}
+  style={staggerIndex ? `--stagger-index: ${staggerIndex}` : undefined}
   data-analytics="project-link-click"
   data-label={icon}
 >

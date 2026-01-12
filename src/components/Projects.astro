@@ -14,63 +14,85 @@ console.dir(projects, { depth: null });
 ---
 
 <section id="projects" class="bg-bg-base">
-  <div class="w-full max-w-[1200px] mx-auto py-25 px-4">
+  <div class="w-full max-w-[1200px] mx-auto py-16 md:py-25 px-4">
     <h2
-      class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary animate-fade-in-up mb-[70px]"
+      class="text-2xl font-extrabold text-text-base tracking-wider relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:rounded-full after:w-8 after:h-1 after:bg-bg-secondary animate-fade-in-up md:mb-[70px] mb-[48px]"
       data-animate
     >
       Projects
     </h2>
-    <div class="flex flex-col gap-[70px]">
+    <div class="flex flex-col gap-10 md:gap-[70px]">
       {
         projects.map((project, index) => (
           <div
             class={cn(
-              "flex relative",
+              "group flex relative p-7 rounded-lg md:p-0 md:min-h-0 overflow-hidden animate-fade-in-up stagger-animation",
               index % 2 === 0 ? "justify-start" : "justify-end"
             )}
+            data-animate
+            style={`--stagger-index: ${0.1 * 1}`}
           >
             <Image
               src={project.featured_image.url}
               alt={project.featured_image.alt}
               width={project.featured_image.width}
               height={project.featured_image.height}
-              class="w-full md:w-[60%] h-auto"
+              class={cn(
+                "absolute inset-0 w-full h-full object-cover md:relative md:inset-auto md:w-[60%] md:h-auto animate-fade-in-up stagger-animation"
+              )}
+              data-animate
+              style={`--stagger-index: ${0.2 * 1}`}
             />
+            <div class="absolute inset-0 bg-[#E1D6CB]/75 z-5 rounded-lg md:rounded-none md:hidden" />
+
             <div
               class={cn(
-                "absolute top-1/2 -translate-y-1/2",
-                index % 2 === 0 ? "right-0" : "left-0",
-                index % 2 === 0 ? "text-right" : "text-left"
+                "relative z-10 md:absolute md:top-1/2 md:-translate-y-1/2",
+                index % 2 === 0 ? "md:right-0" : "md:left-0",
+                index % 2 === 0 ? "md:text-right" : "md:text-left"
               )}
             >
               {project.featured && (
-                <span class="text-sm text-text-secondary block font-family-heading font-extrabold tracking-wider">
+                <span
+                  class="text-sm text-text-secondary block font-family-heading font-extrabold tracking-wider animate-fade-in-up stagger-animation"
+                  data-animate
+                  style={`--stagger-index: ${0.3 * 1}`}
+                >
                   Featured Project
                 </span>
               )}
               <a
                 href={project.site || project.repo}
-                class="text-lg font-extrabold text-text-base tracking-wider font-family-heading inline-block mb-2.5"
+                class="text-lg font-extrabold text-text-base tracking-wider font-family-heading inline-block mb-2.5 animate-fade-in-up stagger-animation"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-analytics="project-link-click"
                 data-label={project.site ? "site" : "repo"}
                 data-href={project.site || project.repo}
+                data-animate
+                style={`--stagger-index: ${0.9 * 1}`}
               >
                 {project.name}
               </a>
-              <p class="text-sm text-text-base p-[27px] bg-[#E1D6CB] rounded-lg max-w-[533px]">
+              <p
+                class="text-sm md:text-text-base md:p-[27px] md:bg-[#E1D6CB] md:rounded-lg md:max-w-[533px] animate-fade-in-up stagger-animation"
+                data-animate
+                style={`--stagger-index: ${0.9 * 1}`}
+              >
                 {project.description}
               </p>
               <div
                 class={cn(
                   "flex items-center gap-2.5 mt-2.5",
-                  index % 2 === 0 ? "justify-end" : "justify-start"
+                  index % 2 === 0 ? "md:justify-end" : "justify-start"
                 )}
               >
-                {project.technologies.map((technology) => (
-                  <span class="text-xs text-[#1F2A2E] font-bold tracking-wider">
+                {project.technologies.map((technology, index) => (
+                  <span
+                    class="text-xs text-[#1F2A2E] font-bold tracking-wider animate-fade-in-up stagger-animation"
+                    data-animate
+                    style={`--stagger-index: ${0.9 * index + 1}`}
+                  >
                     {technology}
                   </span>
                 ))}
@@ -78,20 +100,24 @@ console.dir(projects, { depth: null });
               <div
                 class={cn(
                   "flex items-center gap-2.5 mt-2.5",
-                  index % 2 === 0 ? "justify-end" : "justify-start"
+                  index % 2 === 0 ? "md:justify-end" : "justify-start"
                 )}
               >
                 {project.site && (
                   <ProjectLinks
                     class={index % 2 === 0 ? "order-1" : "order-2"}
                     icon="site"
+                    staggerIndex={0.9 * index + 1}
+                    animate={true}
                     href={project.site}
                   />
                 )}
                 {project.repo && (
                   <ProjectLinks
                     class={index % 2 === 0 ? "order-2" : "order-1"}
+                    animate={true}
                     icon="repo"
+                    staggerIndex={0.9 * index + 1}
                     href={project.repo}
                   />
                 )}
