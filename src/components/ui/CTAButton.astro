@@ -2,24 +2,33 @@
 import { cn } from "../../lib/utils";
 
 interface Props {
-  icon: "download" | "projects";
+  icon?: "download" | "projects";
   label: string;
   href: string;
   class?: string;
   style?: string;
+  target?: "_blank" | "_self";
   animate?: boolean;
 }
 
-const { icon, label, href, class: className, style, animate } = Astro.props;
+const {
+  icon,
+  label,
+  href,
+  class: className,
+  style,
+  target = "_blank",
+  animate,
+} = Astro.props;
 ---
 
 <a
   href={href}
   class={cn(
     "text-[0.8125rem] font-family-heading uppercase font-semibold text-text-base bg-bg-base px-2 py-2 rounded-full inline-flex items-center gap-2 border-4 border-bg-secondary relative overflow-hidden before:content-[''] before:absolute before:top-0 before:right-0 before:bottom-0 before:bg-[#E4CDB8] before:w-16 before:rounded-full hover:before:w-full before:transition-[width] before:duration-300 before:ease-out before:z-0",
-    className
+    className,
   )}
-  target="_blank"
+  target={target}
   style={style}
   data-animate={animate}
   data-analytics="cta-click"

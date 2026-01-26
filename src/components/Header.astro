@@ -71,6 +71,7 @@ const { header } = Astro.props;
             ))}
           </ul>
           <CTAButton
+            target={header.cta.icon === "projects" ? "_self" : "_blank"}
             icon={header.cta.icon}
             label={header.cta.label}
             href={header.cta.href}

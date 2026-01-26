@@ -4,6 +4,7 @@ import { getEntry } from "astro:content";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
 const home = await getEntry("pages", "home");
 
 if (!home) {
@@ -15,4 +16,5 @@ if (!home) {
   <Hero hero={home.data.hero} />
   <About about={home.data.about} />
   <Projects projects={home.data.projects} />
+  <Contact contact={home.data.contact} />
 </Layout>

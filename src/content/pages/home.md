@@ -82,7 +82,53 @@ about:
 projects:
   - featured: true
     featured_image:
-      url: "/images/projects/artec-manufacturing.png"
+      url: "/images/projects/jet-agency.png"
+      alt: "Artec Manufacturing feature image"
+      width: 720
+      height: 447
+    name: "Jet Agency"
+    description: "Jet Agency is a premium website designed for exclusive company members. Using React, TypeScript, and Next.js, I led the development to create a seamless and responsive user experience. Integrated with Strapi for content management, the project delivers a high-performance interface tailored to the sophisticated needs of the members."
+    technologies:
+      - "Typescript"
+      - "Sass"
+      - "Next"
+      - "Strapi"
+    site: "https://www.jetagency.com/"
+  - featured: true
+    featured_image:
+      url: "/images/projects/jet-agency-vault.png"
+      alt: "Artec Manufacturing feature image"
+      width: 720
+      height: 447
+    name: "Jet Agency Vault"
+    description: "Jet Agency Vault is the company's membership CRM, engineered to streamline operations. Spearheading the development with React, TypeScript, Next.js, and FastAPI, I implemented interactive tables and advanced visualizations to provide deep data insights. The system features robust member management capabilities with complex filtering and search functionality, significantly optimizing client service workflows."
+    technologies:
+      - "Typescript"
+      - "Tailwind"
+      - "Shadcn/ui"
+      - "Next"
+      - "Python"
+      - "FastAPI"
+    site: "https://vault.jetagency.com/"
+  - featured: true
+    featured_image:
+      url: "/images/projects/axis.png"
+      alt: "Artec Manufacturing feature image"
+      width: 720
+      height: 447
+    name: "Axis"
+    description: "Axis is a specialized platform for sourcing private flights by connecting with operators. Built with React, TypeScript, Next.js, and FastAPI, the system streamlines the process of finding and contacting flight operators. Leading the frontend development, I architected the application to efficiently handle complex search queries and facilitate direct communication, enhancing the operational workflow for flight sourcing."
+    technologies:
+      - "Typescript"
+      - "Tailwind"
+      - "Shadcn/ui"
+      - "Next"
+      - "Python"
+      - "FastAPI"
+    site: "https://axis.jetagency.com/"
+  - featured: true
+    featured_image:
+      url: "/images/projects/artec.png"
       alt: "Artec Manufacturing feature image"
       width: 720
       height: 447
@@ -93,19 +139,15 @@ projects:
       - "Sass"
       - "Next"
     site: "https://www.artecmanufacturing.com/"
-  - featured: true
-    featured_image:
-      url: "/images/projects/artec-manufacturing.png"
-      alt: "Artec Manufacturing feature image"
-      width: 720
-      height: 447
-    name: "CoinFolio"
-    description: "CoinFolio is a full-stack cryptocurrency web application design to help users track their favorite coins and get a 7 days snapshot of the price. The app was build with next-auth, prisma, google provider for authentication, and trpc as a wrapper for serverless functions. The ui was build with tailwind for theming and dark and light mode."
-    technologies:
-      - "Typescript"
-      - "Sass"
-      - "Next"
-    site: "https://coinfolio-plum.vercel.app/"
-    repo: "https://github.com/benny-hp/coinfolio"
+contact:
+  heading: "Get In Touch"
+  description: "Currently looking for any new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!"
+  social:
+    - icon: "github"
+      href: "https://github.com/benny-hp"
+    - icon: "linkedin"
+      href: "https://www.linkedin.com/in/benny-hernandez/"
+    - icon: "x"
+      href: "https://x.com/Benny_Cod3s"
 
 ---

@@ -26,30 +26,38 @@ console.dir(projects, { depth: null });
         projects.map((project, index) => (
           <div
             class={cn(
-              "group flex relative p-7 rounded-lg md:p-0 md:min-h-0 overflow-hidden animate-fade-in-up stagger-animation",
-              index % 2 === 0 ? "justify-start" : "justify-end"
+              "group flex relative p-7 rounded-lg md:p-0 md:min-h-0 overflow-hidden md:overflow-visible animate-fade-in-up stagger-animation",
+              index % 2 === 0 ? "justify-start" : "justify-end",
             )}
             data-animate
             style={`--stagger-index: ${0.1 * 1}`}
           >
-            <Image
-              src={project.featured_image.url}
-              alt={project.featured_image.alt}
-              width={project.featured_image.width}
-              height={project.featured_image.height}
-              class={cn(
-                "absolute inset-0 w-full h-full object-cover md:relative md:inset-auto md:w-[60%] md:h-auto animate-fade-in-up stagger-animation"
-              )}
-              data-animate
-              style={`--stagger-index: ${0.2 * 1}`}
-            />
-            <div class="absolute inset-0 bg-[#E1D6CB]/75 z-5 rounded-lg md:rounded-none md:hidden" />
+            <a
+              href={project.site || project.repo}
+              class="absolute inset-0 md:relative md:inset-auto md:w-[60%]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={project.featured_image.url}
+                alt={project.featured_image.alt}
+                width={project.featured_image.width}
+                height={project.featured_image.height}
+                class={cn(
+                  "absolute inset-0 w-full h-full object-cover md:relative md:inset-auto md:w-full md:h-auto animate-fade-in-up stagger-animation",
+                )}
+                data-animate
+                style={`--stagger-index: ${0.2 * 1}`}
+              />
+              <div class="absolute inset-0 bg-[#E1D6CB]/90 z-5 rounded-lg md:rounded-none md:hidden" />
+              <div class="absolute inset-0 bg-bg-base/50 md:bg-bg-base/50 transition-opacity duration-300 group-hover:opacity-0 z-10 rounded-lg md:rounded-none" />
+            </a>
 
             <div
               class={cn(
                 "relative z-10 md:absolute md:top-1/2 md:-translate-y-1/2",
                 index % 2 === 0 ? "md:right-0" : "md:left-0",
-                index % 2 === 0 ? "md:text-right" : "md:text-left"
+                index % 2 === 0 ? "md:text-right" : "md:text-left",
               )}
             >
               {project.featured && (
@@ -83,8 +91,8 @@ console.dir(projects, { depth: null });
               </p>
               <div
                 class={cn(
-                  "flex items-center gap-2.5 mt-2.5",
-                  index % 2 === 0 ? "md:justify-end" : "justify-start"
+                  "flex items-center flex-wrap gap-2.5 mt-2.5",
+                  index % 2 === 0 ? "md:justify-end" : "justify-start",
                 )}
               >
                 {project.technologies.map((technology, index) => (
@@ -100,7 +108,7 @@ console.dir(projects, { depth: null });
               <div
                 class={cn(
                   "flex items-center gap-2.5 mt-2.5",
-                  index % 2 === 0 ? "md:justify-end" : "justify-start"
+                  index % 2 === 0 ? "md:justify-end" : "justify-start",
                 )}
               >
                 {project.site && (

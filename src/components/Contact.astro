@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from "astro:content";
+import SocialLinks from "./ui/SocialLinks.astro";
+import CTAButton from "./ui/CTAButton.astro";
+interface Props {
+  contact: CollectionEntry<"pages">["data"]["contact"];
+}
+
+const { contact } = Astro.props;
+---
+
+<section id="contact" class="bg-[#E1D6CB]">
+  <div class="w-full max-w-[1200px] mx-auto py-25 px-4">
+    <div>
+      <span
+        class="text-sm text-text-secondary block font-family-heading font-extrabold tracking-wider text-center animate-fade-in-up"
+        data-animate>What's Next?</span
+      >
+      <h2
+        class="text-2xl font-extrabold text-text-base tracking-wider text-center animate-fade-in-up stagger-animation"
+        data-animate
+        style={`--stagger-index: ${0.1}`}
+      >
+        {contact.heading}
+      </h2>
+      <div class="flex items-center justify-center gap-2 my-2">
+        {
+          contact.social.map((social, index) => (
+            <SocialLinks
+              class="animate-fade-in-up stagger-animation"
+              animate={true}
+              style={`--stagger-index: ${0.3 + index}`}
+              icon={social.icon}
+              href={social.href}
+            />
+          ))
+        }
+      </div>
+      <p
+        class="text-base text-text-base text-center max-w-[575px] mx-auto animate-fade-in-up stagger-animation"
+        data-animate
+        style={`--stagger-index: ${0.2}`}
+      >
+        {contact.description}
+      </p>
+      <CTAButton
+        animate={true}
+        style={`--stagger-index: ${0.3}`}
+        label="CONTACT ME"
+        href="mailto:inquiry@bennyhernandez.com"
+        class="mt-5 block mx-auto w-fit bg-[#E1D6CB] animate-fade-in-up stagger-animation"
+      />
+    </div>
+  </div>
+</section>

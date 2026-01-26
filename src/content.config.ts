@@ -65,6 +65,16 @@ const pages = defineCollection({
         repo: z.string().url().optional(),
       })
     ),
+    contact: z.object({
+      heading: z.string(),
+      description: z.string(),
+      social: z.array(
+        z.object({
+          icon: z.enum(["github", "linkedin", "x"]),
+          href: z.string(),
+        })
+      ),
+    }),
   }),
 });
 

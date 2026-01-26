@@ -49,7 +49,9 @@ const canonical = Astro.url.href;
     <main class="grow">
       <slot />
     </main>
-    <!-- <Footer footer={global.data.footer} /> -->
+    <footer class="bg-[#B8ADA2] py-2 text-center text-sm text-text-base">
+      © {new Date().getFullYear()}, Built by Benny Hernandez
+    </footer>
   </body>
   <script is:inline>
     (function () {
@@ -70,7 +72,7 @@ const canonical = Astro.url.href;
           {
             threshold: 0.1,
             rootMargin: "0px 0px -50px 0px",
-          }
+          },
         );
 
         animatedElements.forEach((el) => observer.observe(el));
