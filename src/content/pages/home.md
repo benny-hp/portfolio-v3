@@ -1,16 +1,16 @@
 ---
 seo:
-  title: "Porto Nova Solutions | Custom Software Development | Staff Augmentation"
-  description: "Transform your ideas into software people love. We deliver custom software development and staff augmentation services, building web apps, mobile apps, and backend systems tailored to your business needs."
+  title: "Benny Hernandez | Full Stack Developer | React, TypeScript, Next.js"
+  description: "Full stack developer specializing in React, TypeScript, Next.js, and FastAPI. Building performant web applications, CRM systems, and internal platforms. Currently at JetAgency."
   og:
-    title: "Porto Nova Solutions | Custom Software Development | Staff Augmentation"
-    description: "Transform your ideas into software people love. We deliver custom software development and staff augmentation services, building web apps, mobile apps, and backend systems tailored to your business needs."
+    title: "Benny Hernandez | Full Stack Developer | React, TypeScript, Next.js"
+    description: "Full stack developer specializing in React, TypeScript, Next.js, and FastAPI. Building performant web applications, CRM systems, and internal platforms. Currently at JetAgency."
     type: "website"
-    url: "https://portonovasolutions.com"
+    url: "https://bennyhernandez.com"
   twitter:
     card: "summary_large_image"
-    title: "Porto Nova Solutions | Custom Software Development | Staff Augmentation"
-    description: "Transform your ideas into software people love. We deliver custom software development and staff augmentation services, building web apps, mobile apps, and backend systems tailored to your business needs."
+    title: "Benny Hernandez | Full Stack Developer | React, TypeScript, Next.js"
+    description: "Full stack developer specializing in React, TypeScript, Next.js, and FastAPI. Building performant web applications, CRM systems, and internal platforms. Currently at JetAgency."
 hero:
   heading: "Full-Stack Web Developer"
   subheading: "Benny Hernandez"
