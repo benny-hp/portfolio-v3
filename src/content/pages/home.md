@@ -14,7 +14,7 @@ seo:
 hero:
   heading: "Full-Stack Web Developer"
   subheading: "Benny Hernandez"
-  text: "I’m a full stack developer who enjoys building clean, functional, and performant web applications. I’m passionate about solving real problems with thoughtful code."
+  text: "I'm a full stack developer who enjoys building clean, functional, and performant web applications. I'm passionate about solving real problems with thoughtful code and solid engineering practices."
   cta:
     - icon: "projects"
       label: "PROJECTS"
@@ -30,11 +30,11 @@ about:
       href: "https://www.linkedin.com/in/benny-hernandez/"
     - icon: "x"
       href: "https://x.com/Benny_Cod3s"
-  description: "I’m a full stack developer who enjoys building clean, functional, and performant web applications. I’m passionate about solving real problems with thoughtful code and building tools that help people work more efficiently.
+  description: "I'm a full stack developer who builds web applications that solve real business problems. I write thoughtful code and create tools that help teams work more efficiently, focusing on solutions that drive real impact.
 
-  Currently, I’m a Full Stack Developer at JetGenius, where I work across our tech stack to maintain and evolve our marketing websites and internal platforms. A big part of my role involves building and improving internal CRM systems — including one I architected and developed entirely from scratch to streamline operations and boost efficiency.
+  Currently, I’m a Full Stack Developer at JetGenius, where I work across our tech stack to maintain and evolve our marketing websites and internal platforms. A big part of my role involves building and improving internal CRM systems including one I architected and developed entirely from scratch to streamline operations and boost efficiency.
 
-  My experience spans both frontend and backend development, and I’m especially driven by projects where I can take ownership of the full development lifecycle — from planning and design to deployment and iteration.
+  My experience spans both frontend and backend development, and I’m especially driven by projects where I can take ownership of the full development lifecycle from planning and design to deployment and iteration.
 
   Outside of work, I’m always exploring new technologies, refining my skillset, or tinkering with personal side projects. I believe in continuous learning and enjoy finding smarter, more elegant solutions to everyday challenges."
   skills:
