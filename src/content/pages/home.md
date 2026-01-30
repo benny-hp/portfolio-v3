@@ -139,6 +139,37 @@ projects:
       - "Sass"
       - "Next"
     site: "https://www.artecmanufacturing.com/"
+  - featured: false
+    featured_image:
+      url: "/images/projects/typing-test.png"
+      alt: "typing test game feature image"
+      width: 720
+      height: 447
+    name: "Typing Speed Test"
+    description: "A real-time typing speed and accuracy testing application built with React, TypeScript, and CSS. The game provides users with a text passages to type, tracking words per minute (WPM) and accuracy metrics in real-time. Featuring a clean, intuitive interface and instant feedback."
+    technologies:
+      - "Typescript"
+      - "CSS"
+      - "React"
+      - "Vite"
+    site: "https://benny-typing-test.netlify.app/"
+    repo: "https://github.com/benny-hp/typing-test"
+  - featured: false
+    featured_image:
+      url: "/images/projects/popcorn-tracker.png"
+      alt: "Popcorn Tracker feature image"
+      width: 720
+      height: 447
+    name: "Popcorn Tracker"
+    description: "Popcorn tracker is a full-stack movie tracking application that allows users to search movies and save them as watched or want to watch. The front-end was built using Typescript, React, Material UI. The back-end was built using Node, Nest.js, Typescript, and Postgres."
+    technologies:
+      - "Typescript"
+      - "Material UI"
+      - "Next"
+      - "Nest"
+      - "Postgres"
+    site: "https://popcorn-tracker-web.vercel.app/"
+    repo: "https://github.com/benny-hp/-popcorn-tracker-web"
 contact:
   heading: "Get In Touch"
   description: "Currently looking for any new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!"
