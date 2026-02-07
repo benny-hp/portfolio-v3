@@ -35,6 +35,7 @@ const { hero } = Astro.props;
               icon={cta.icon}
               label={cta.label}
               href={cta.href}
+              target={cta.icon === "projects" ? "_self" : "_blank"}
             />
           ))
         }
